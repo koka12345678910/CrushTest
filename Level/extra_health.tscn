@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://casw7sax3nt5a"]
+
+[ext_resource type="Texture2D" uid="uid://tyytvjgg0q05" path="res://tools/Pixel Heart/animate/animate h1.png" id="1_0r54w"]
+[ext_resource type="Script" uid="uid://cqv08p6cjeiyo" path="res://Level/extra_health.gd" id="1_swyh8"]
+[ext_resource type="Texture2D" uid="uid://hmg1j8ejqpc7" path="res://tools/Pixel Heart/animate/animate h2.png" id="2_po8ci"]
+[ext_resource type="Texture2D" uid="uid://c105fr8bs6fs1" path="res://tools/Pixel Heart/animate/animate h3.png" id="3_id2vb"]
+[ext_resource type="Texture2D" uid="uid://mwatuh2jxnih" path="res://tools/circle.png" id="5_4seyx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alos6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0r54w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_po8ci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_id2vb")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dg4xg"]
+radius = 12.0416
+
+[node name="extra_health" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_swyh8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.068, 0.072)
+sprite_frames = SubResource("SpriteFrames_alos6")
+animation = &"anim"
+autoplay = "anim"
+frame_progress = 0.655228
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.065, 0.055)
+energy = 2.0
+texture = ExtResource("5_4seyx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dg4xg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwxakqjrshede"]
+
+[ext_resource type="Script" uid="uid://bwi7e1k16d8iw" path="res://Level/pause_menu.gd" id="1_sejj1"]
+[ext_resource type="Texture2D" uid="uid://dtvwshgrur2w1" path="res://tools/Headless@3x.png" id="2_tkgxm"]
+[ext_resource type="FontFile" uid="uid://bwtxppurcoomo" path="res://tools/TeletactileLatCyr/TeletactileRus.ttf" id="2_wjelo"]
+[ext_resource type="Texture2D" uid="uid://d35u3bhw3kjxa" path="res://tools/Default.png" id="4_qesf5"]
+[ext_resource type="Texture2D" uid="uid://b1b4p7tvhqes8" path="res://tools/Hover.png" id="5_vfwne"]
+
+[node name="Pause_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 34.0
+offset_bottom = 39.0
+script = ExtResource("1_sejj1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 248.0
+offset_bottom = 289.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 2922.0
+offset_bottom = 3295.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_tkgxm")
+
+[node name="Label" type="Label" parent="Panel"]
+modulate = Color(0.662452, 0.662452, 0.662452, 1)
+layout_mode = 0
+offset_left = 115.0
+offset_top = 60.0
+offset_right = 166.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("2_wjelo")
+theme_override_font_sizes/font_size = 20
+text = "Menu"
+
+[node name="VBoxContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 126.0
+offset_right = 281.0
+offset_bottom = 394.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.705882)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wjelo")
+theme_override_font_sizes/font_size = 17
+icon = ExtResource("4_qesf5")
+flat = true
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.705882)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wjelo")
+theme_override_font_sizes/font_size = 17
+icon = ExtResource("5_vfwne")
+flat = true
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://4hr0njup5dbt"]
+
+[ext_resource type="Script" uid="uid://c2j5bxm2n6w7h" path="res://Level/death_panel.gd" id="1_vo5de"]
+[ext_resource type="FontFile" uid="uid://bwtxppurcoomo" path="res://tools/TeletactileLatCyr/TeletactileRus.ttf" id="2_36p4k"]
+
+[node name="Death_panel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 551.0
+offset_bottom = 263.0
+script = ExtResource("1_vo5de")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 551.0
+offset_top = 263.0
+offset_right = 1383.0
+offset_bottom = 803.0
+
+[node name="VBoxContainer" type="GridContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 360.0
+offset_right = 325.0
+offset_bottom = 414.0
+scale = Vector2(2, 2)
+
+[node name="Again" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_36p4k")
+text = "Заново"
+
+[node name="QuitMenu" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_36p4k")
+text = "Выйти в главное меню"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 116.0
+offset_top = -1.0
+offset_right = 227.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 15
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = -4.0
+offset_right = 595.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 15
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 118.0
+offset_right = 222.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 12
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 155.0
+offset_right = 694.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 12
+
+[connection signal="pressed" from="Panel/VBoxContainer/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitMenu" to="." method="_on_quit_menu_pressed"]
